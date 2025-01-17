@@ -1,0 +1,41 @@
+classDiagram
+class conferencia
+conferencia : -Int sala
+conferencia : -String lugar
+conferencia :
+conferencia :
+class sesion
+sesion : -datetime inicio
+sesion : -Int duracion // minutos
+sesion :
+sesion :
+class participantes
+participantes : -String nombre
+participantes : -String apellidos
+
+participantes :
+%% orador-publico
+participantes : -String tipo
+class artigo
+artigo : -String tema
+%% curto*largo
+artigo : -String duracion
+artigo :
+artigo :
+class autor
+autor : -String nombre
+autor : -String apellidos
+autor :
+autor :
+class incripcion
+%% confirmado-cancelado
+incripcion : -Boolean estado
+incripcion : -date fechaIncripcion
+incripcion : -Int prezo
+incripcion :
+
+conferencia "1" --* "1..N" sesion
+participantes "1" o-- "1..N"incripcion
+conferencia "1" o-- "1..N" incripcion
+artigo "1..N" -- "0..N" sesion
+autor "1..N" -- "1..N" artigo
