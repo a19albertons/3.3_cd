@@ -68,4 +68,8 @@ public class Inscripcion {
                 ", participantes=" + participantes +
                 '}';
     }
+
+    public static void cambioEstado() {
+
+    }
 }
