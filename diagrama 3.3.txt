@@ -12,8 +12,6 @@ sesion :
 class participantes
 participantes : -String nombre
 participantes : -String apellidos
-
-participantes :
 %% orador-publico
 participantes : -String tipo
 class artigo
@@ -34,7 +32,7 @@ incripcion : -date fechaIncripcion
 incripcion : -Int prezo
 incripcion :
 
-conferencia "1" --* "1..N" sesion
+conferencia "1" *-- "0..N" sesion
 participantes "1" o-- "1..N"incripcion
 conferencia "1" o-- "1..N" incripcion
 artigo "1..N" -- "0..N" sesion
