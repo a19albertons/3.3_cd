@@ -51,6 +51,7 @@ codigo java
 
 2. Código fuente del diagrama anotado en sus etiquetas.
 
+```mermaid
 classDiagram
 class conferencia
 conferencia : -Int sala
@@ -82,11 +83,11 @@ participantes "1" o-- "1..N"incripcion
 conferencia "1" o-- "1..N" incripcion
 artigo "1..N" -- "0..N" sesion
 autor "1..N" -- "1..N" artigo
-
+```
 
 
 3. Código java de las clases.
-```` Java
+``` Java
 public class Artigo {
    private String tema;
    private String duracion;
@@ -401,5 +402,5 @@ public class Autor {
     }
 }
 
-
+```
 
