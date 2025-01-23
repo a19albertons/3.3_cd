@@ -12,7 +12,7 @@ participantes : -String apellidos
 participantes : -String tipo
 class artigo
 artigo : -String tema
-%% curto*largo
+%% curto-longo
 artigo : -String duracion
 class autor
 autor : -String nombre

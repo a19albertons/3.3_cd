@@ -8,7 +8,7 @@ Empezamos creando no diagrama as clases de conferencia
 
 Tras leer o segundo punto no diagrama actualizamos a
  relacion de asociacion a unha composicion e ca 
-seguinte carindalida. Aqui se determinan alguns atributos
+seguinte cardinalidade. Aqui se determinan alguns atributos
 como data e hora de inicio na clase sesion
 
 - conferencia a sesion 0..N
@@ -17,36 +17,35 @@ como data e hora de inicio na clase sesion
 Tras leer o terceiro punto añadense as clases participante
 e inscripcion por un momento pensouse nunha generalización, 
 pero non consideramos atributos propios votando un vistazo
- aos seguintes puntos así que non a fixemos. Aqui se xa se
-determinan alguns atributos coma tipo en participantes e 
-un metodo en inscripcion chamado cambioEstado
+ aos seguintes puntos así que non a fixemos. Aqui xa se
+determinan alguns atributos coma tipo (orador/publico) en participantes e 
+un metodo en inscripcion chamado cambioEstado (confirmado/cancelado)
 
-O primer caso de cardinalida que trataremos e entre participante
- e inscripcion
+O primer caso de cardinalidade que trataremos e entre participante
+ e inscripcion. Entendemos que un participante pode estar incripto en varias conferencias
 
 - inscripcion a participante 1
 - participante a inscripcion 1..N
 
-A segunda caso de cadinalidad que trataremos e entre inscripcion e
+A segunda caso de cadinalidade que trataremos e entre inscripcion e
  conferencia
 - inscripcion a conferencia 1
 - conferencia a inscripcion 1..N
 
 No cuarto punto añadimos unha nova clase chamada artigos e creamos 
-unha asociación con sesion e a clase artigo ten o atributo duracion.
+unha asociación con sesion e a clase artigo ten o atributo duracion (curto/longo).
 A cardinalidade entre artigo e sesion e a seguinte
 - artigo a sesion 0..N //suposto
 - sesion a artigo 1..N
 
-No quinto punto añadimos unha nova clase que e autor maila sua carnalidade.
+No quinto punto añadimos unha nova clase que e autor máis a sua cardinalidade.
 Supomos que o autor vai ter como minimo 1 artigo para ser un autor
 e un artigo poder ter varios 1 ou mais autores
 
 - autor a artigo 1..N
 - artigo a autor 1..N
 
-No sexto punto añadimos algun que outro atributo extra sobre os obrigatorios
-que consideramos como se podra ver no punto 2 co codigo fonte ou no propio
+No sexto punto añadimos algun que outro atributo extra sobre os indicados nos puntos previos que consideramos como se podra ver no punto 2 co codigo fonte ou no propio
 codigo java
 
 2. Código fuente del diagrama anotado en sus etiquetas.
@@ -66,7 +65,7 @@ participantes : -String apellidos
 participantes : -String tipo
 class artigo
 artigo : -String tema
-%% curto*largo
+%% curto-longo
 artigo : -String duracion
 class autor
 autor : -String nombre
