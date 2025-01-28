@@ -63,6 +63,7 @@ participantes : -String nombre
 participantes : -String apellidos
 %% orador-publico
 participantes : -String tipo
+participantes : +inscribirse()
 class artigo
 artigo : -String tema
 %% curto-longo
@@ -77,11 +78,13 @@ incripcion : -date fechaIncripcion
 incripcion : -Int prezo
 incripcion : +cambioEstado()
 
-conferencia "1" *-- "0..N" sesion
-participantes "1" o-- "1..N"incripcion
-conferencia "1" o-- "1..N" incripcion
+conferencia "1" --* "0..N" sesion
+participantes "1" --o "1..N"incripcion
+conferencia "1" --o "1..N" incripcion
 artigo "1..N" -- "0..N" sesion
 autor "1..N" -- "1..N" artigo
+
+
 ```
 
 
