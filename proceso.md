@@ -130,26 +130,22 @@ public class Artigo {
    }
    }
 
+import java.util.List;
+
 public class Participantes {
     private String nombre;
     private String apellidos;
     private String tipo;
+    private List<Inscripcion> inscripcions;
 
     public Participantes() {
     }
 
-    public Participantes(String apellidos, String nombre, String tipo) {
-        this.apellidos = apellidos;
+    public Participantes(String nombre, String apellidos, String tipo, List<Inscripcion> inscripcions) {
         this.nombre = nombre;
-        this.tipo = tipo;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+        this.tipo = tipo;
+        this.inscripcions = inscripcions;
     }
 
     public String getNombre() {
@@ -160,6 +156,14 @@ public class Participantes {
         this.nombre = nombre;
     }
 
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -168,25 +172,53 @@ public class Participantes {
         this.tipo = tipo;
     }
 
+    public List<Inscripcion> getInscripcions() {
+        return inscripcions;
+    }
+
+    public void setInscripcions(List<Inscripcion> inscripcions) {
+        this.inscripcions = inscripcions;
+    }
+
     @Override
     public String toString() {
         return "Participantes{" +
-                "apellidos='" + apellidos + '\'' +
-                ", nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
                 ", tipo='" + tipo + '\'' +
+                ", inscripcions=" + inscripcions +
                 '}';
     }
+
+    public void inscribirse(){
+
+    }
 }
+
+
+import java.util.List;
 
 public class Conferencia {
     private Integer sala;
     private String lugar;
+    private List<Sesion> sesiones;
+    private List<Inscripcion> inscripcions;
 
     public Conferencia() {
     }
 
-    public Conferencia(String lugar, Integer sala) {
+    public Conferencia(Integer sala, String lugar, List<Sesion> sesiones, List<Inscripcion> inscripcions) {
+        this.sala = sala;
         this.lugar = lugar;
+        this.sesiones = sesiones;
+        this.inscripcions = inscripcions;
+    }
+
+    public Integer getSala() {
+        return sala;
+    }
+
+    public void setSala(Integer sala) {
         this.sala = sala;
     }
 
@@ -198,22 +230,33 @@ public class Conferencia {
         this.lugar = lugar;
     }
 
-    public Integer getSala() {
-        return sala;
+    public List<Sesion> getSesiones() {
+        return sesiones;
     }
 
-    public void setSala(Integer sala) {
-        this.sala = sala;
+    public void setSesiones(List<Sesion> sesiones) {
+        this.sesiones = sesiones;
+    }
+
+    public List<Inscripcion> getInscripcions() {
+        return inscripcions;
+    }
+
+    public void setInscripcions(List<Inscripcion> inscripcions) {
+        this.inscripcions = inscripcions;
     }
 
     @Override
     public String toString() {
         return "Conferencia{" +
-                "lugar='" + lugar + '\'' +
-                ", sala=" + sala +
+                "sala=" + sala +
+                ", lugar='" + lugar + '\'' +
+                ", sesiones=" + sesiones +
+                ", inscripcions=" + inscripcions +
                 '}';
     }
 }
+
 
 
 import java.util.Date;
@@ -222,26 +265,14 @@ public class Inscripcion {
     private Boolean estado;
     private Date fechaInscripcion;
     private Integer prezo;
-    private Participantes participantes;
-    private Conferencia conferencia;
 
     public Inscripcion() {
     }
 
-    public Inscripcion(Conferencia conferencia, Boolean estado, Date fechaInscripcion, Participantes participantes, Integer prezo) {
-        this.conferencia = conferencia;
+    public Inscripcion(Boolean estado, Date fechaInscripcion, Integer prezo) {
         this.estado = estado;
         this.fechaInscripcion = fechaInscripcion;
-        this.participantes = participantes;
         this.prezo = prezo;
-    }
-
-    public Conferencia getConferencia() {
-        return conferencia;
-    }
-
-    public void setConferencia(Conferencia conferencia) {
-        this.conferencia = conferencia;
     }
 
     public Boolean getEstado() {
@@ -260,14 +291,6 @@ public class Inscripcion {
         this.fechaInscripcion = fechaInscripcion;
     }
 
-    public Participantes getParticipantes() {
-        return participantes;
-    }
-
-    public void setParticipantes(Participantes participantes) {
-        this.participantes = participantes;
-    }
-
     public Integer getPrezo() {
         return prezo;
     }
@@ -279,18 +302,16 @@ public class Inscripcion {
     @Override
     public String toString() {
         return "Inscripcion{" +
-                "conferencia=" + conferencia +
-                ", estado=" + estado +
+                "estado=" + estado +
                 ", fechaInscripcion=" + fechaInscripcion +
                 ", prezo=" + prezo +
-                ", participantes=" + participantes +
                 '}';
     }
-
-    public static void cambioEstado() {
+    public void cambioEstado(){
 
     }
 }
+
 
 
 import java.sql.Time;
@@ -300,33 +321,15 @@ import java.util.List;
 public class Sesion {
     private Date inicio_dia;
     private Time inicio_hora;
-    private Conferencia conferencia;
     private List<Artigo> artigo;
 
     public Sesion() {
     }
 
-    public Sesion(List<Artigo> artigo, Conferencia conferencia, Date inicio_dia, Time inicio_hora) {
-        this.artigo = artigo;
-        this.conferencia = conferencia;
+    public Sesion(Date inicio_dia, Time inicio_hora, List<Artigo> artigo) {
         this.inicio_dia = inicio_dia;
         this.inicio_hora = inicio_hora;
-    }
-
-    public List<Artigo> getArtigo() {
-        return artigo;
-    }
-
-    public void setArtigo(List<Artigo> artigo) {
         this.artigo = artigo;
-    }
-
-    public Conferencia getConferencia() {
-        return conferencia;
-    }
-
-    public void setConferencia(Conferencia conferencia) {
-        this.conferencia = conferencia;
     }
 
     public Date getInicio_dia() {
@@ -345,16 +348,26 @@ public class Sesion {
         this.inicio_hora = inicio_hora;
     }
 
+    public List<Artigo> getArtigo() {
+        return artigo;
+    }
+
+    public void setArtigo(List<Artigo> artigo) {
+        this.artigo = artigo;
+    }
+
     @Override
     public String toString() {
         return "Sesion{" +
-                "artigo=" + artigo +
-                ", inicio_dia=" + inicio_dia +
+                "inicio_dia=" + inicio_dia +
                 ", inicio_hora=" + inicio_hora +
-                ", conferencia=" + conferencia +
+                ", artigo=" + artigo +
                 '}';
     }
+
+
 }
+
 
 
 import java.util.List;
