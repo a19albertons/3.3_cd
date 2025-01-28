@@ -4,26 +4,14 @@ public class Inscripcion {
     private Boolean estado;
     private Date fechaInscripcion;
     private Integer prezo;
-    private Participantes participantes;
-    private Conferencia conferencia;
 
     public Inscripcion() {
     }
 
-    public Inscripcion(Conferencia conferencia, Boolean estado, Date fechaInscripcion, Participantes participantes, Integer prezo) {
-        this.conferencia = conferencia;
+    public Inscripcion(Boolean estado, Date fechaInscripcion, Integer prezo) {
         this.estado = estado;
         this.fechaInscripcion = fechaInscripcion;
-        this.participantes = participantes;
         this.prezo = prezo;
-    }
-
-    public Conferencia getConferencia() {
-        return conferencia;
-    }
-
-    public void setConferencia(Conferencia conferencia) {
-        this.conferencia = conferencia;
     }
 
     public Boolean getEstado() {
@@ -42,14 +30,6 @@ public class Inscripcion {
         this.fechaInscripcion = fechaInscripcion;
     }
 
-    public Participantes getParticipantes() {
-        return participantes;
-    }
-
-    public void setParticipantes(Participantes participantes) {
-        this.participantes = participantes;
-    }
-
     public Integer getPrezo() {
         return prezo;
     }
@@ -61,15 +41,12 @@ public class Inscripcion {
     @Override
     public String toString() {
         return "Inscripcion{" +
-                "conferencia=" + conferencia +
-                ", estado=" + estado +
+                "estado=" + estado +
                 ", fechaInscripcion=" + fechaInscripcion +
                 ", prezo=" + prezo +
-                ", participantes=" + participantes +
                 '}';
     }
-
-    public static void cambioEstado() {
+    public void cambioEstado(){
 
     }
 }

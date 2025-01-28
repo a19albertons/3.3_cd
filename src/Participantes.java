@@ -1,23 +1,19 @@
+import java.util.List;
+
 public class Participantes {
     private String nombre;
     private String apellidos;
     private String tipo;
+    private List<Inscripcion> inscripcions;
 
     public Participantes() {
     }
 
-    public Participantes(String apellidos, String nombre, String tipo) {
-        this.apellidos = apellidos;
+    public Participantes(String nombre, String apellidos, String tipo, List<Inscripcion> inscripcions) {
         this.nombre = nombre;
-        this.tipo = tipo;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+        this.tipo = tipo;
+        this.inscripcions = inscripcions;
     }
 
     public String getNombre() {
@@ -28,6 +24,14 @@ public class Participantes {
         this.nombre = nombre;
     }
 
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -36,12 +40,25 @@ public class Participantes {
         this.tipo = tipo;
     }
 
+    public List<Inscripcion> getInscripcions() {
+        return inscripcions;
+    }
+
+    public void setInscripcions(List<Inscripcion> inscripcions) {
+        this.inscripcions = inscripcions;
+    }
+
     @Override
     public String toString() {
         return "Participantes{" +
-                "apellidos='" + apellidos + '\'' +
-                ", nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
                 ", tipo='" + tipo + '\'' +
+                ", inscripcions=" + inscripcions +
                 '}';
+    }
+
+    public void inscribirse(){
+
     }
 }
