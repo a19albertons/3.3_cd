@@ -32,6 +32,9 @@ A segunda caso de cadinalidade que trataremos e entre inscripcion e
 - inscripcion a conferencia 1
 - conferencia a inscripcion 1..N
 
+Nota: consideramos que aqui existe unha relación de agregación porque consideramos que 
+existe un todo e logo unha parte
+
 No cuarto punto añadimos unha nova clase chamada artigos e creamos 
 unha asociación con sesion e a clase artigo ten o atributo duracion (curto/longo).
 A cardinalidade entre artigo e sesion e a seguinte
